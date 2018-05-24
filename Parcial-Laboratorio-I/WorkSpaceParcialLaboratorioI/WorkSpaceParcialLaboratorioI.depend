@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1525962963 source:c:\users\alumno\desktop\workspaceparciallaboratorioi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"validaciones.h"
+
+1525963274 source:c:\users\alumno\desktop\workspaceparciallaboratorioi\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1525964383 c:\users\alumno\desktop\workspaceparciallaboratorioi\funciones.h
+
+1525958876 c:\users\alumno\desktop\workspaceparciallaboratorioi\validaciones.h
+
+1525961294 source:c:\users\alumno\desktop\workspaceparciallaboratorioi\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"validaciones.h"
+
+1526522008 source:c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"funciones.h"
+	"validaciones.h"
+
+1526607508 c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\funciones.h
+
+1526607656 c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\validaciones.h
+
+1526524149 source:c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"funcionesAutos.h"
+	"validaciones.h"
+
+1526524747 source:c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"funciones.h"
+	"validaciones.h"
+
+1526336724 source:c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\funcionesautos.c
+
+1526336724 c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\funcionesautos.h
+
