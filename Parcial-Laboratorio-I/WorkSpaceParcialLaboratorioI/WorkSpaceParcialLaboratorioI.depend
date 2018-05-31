@@ -56,3 +56,31 @@
 
 1526336724 c:\users\sebas\desktop\parcial-entregar-master\workspaceparciallaboratorioi\funcionesautos.h
 
+1527777153 source:d:\##clonegit\recuperatoriolab1lenguajec\parcial-laboratorio-i\workspaceparciallaboratorioi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"validaciones.h"
+
+1527772856 d:\##clonegit\recuperatoriolab1lenguajec\parcial-laboratorio-i\workspaceparciallaboratorioi\funciones.h
+
+1527771405 d:\##clonegit\recuperatoriolab1lenguajec\parcial-laboratorio-i\workspaceparciallaboratorioi\validaciones.h
+
+1527771405 source:d:\##clonegit\recuperatoriolab1lenguajec\parcial-laboratorio-i\workspaceparciallaboratorioi\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"funciones.h"
+	"validaciones.h"
+
+1527777074 source:d:\##clonegit\recuperatoriolab1lenguajec\parcial-laboratorio-i\workspaceparciallaboratorioi\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"funciones.h"
+	"validaciones.h"
+

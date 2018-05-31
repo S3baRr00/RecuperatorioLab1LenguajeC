@@ -34,6 +34,7 @@ char nombre[4][30]={"Juan","Luis","Maria","Jose"};
 char apellido[4][30]={"-----","-----","-----","-----"};
 char tarjeta[4][10]={"111-111","222-222","333-333","444-444"};
 char direccion[4][50]={"mitre","urquiza","belgrano","alsina"};
+int edad[4]={26,60,35,10};
 
  for(i=0; i<4;i++){
   strcpy(propietario[i].nombre, nombre[i]);
@@ -41,6 +42,7 @@ char direccion[4][50]={"mitre","urquiza","belgrano","alsina"};
   strcpy(propietario[i].NumeroDeTarjeta,tarjeta[i]);
   propietario[i].idPropietario=id[i];
   strcpy(propietario[i].direccion, direccion[i]);
+  propietario[i].edad=edad[i];
   propietario[i].estado=OCUPADO;
   }
  }
@@ -67,6 +69,7 @@ int altapropietario(ePropietarios propietario[], int cant){
 int index=-1;
 int indice;
 int id;
+int i;
 
 indice=buscarLibre(propietario,cant);
  if(indice!=-1){
@@ -77,8 +80,22 @@ indice=buscarLibre(propietario,cant);
    propietario[indice].nombre[30]=validarnombre(propietario[indice].nombre);
    printf("\n Ingrese apellido:\n ");
    propietario[indice].apellido[30]=validarnombre(propietario[indice].apellido);
+   printf(" ingrese edad:\n ");
+   propietario[indice].edad=validarNumero(propietario[indice].edad);
+
    printf(" Ingrese numero de tarjeta:\n ");
+   do{
+   fflush(stdin);
    propietario[indice].NumeroDeTarjeta[10]=validarNumerochar(propietario[indice].NumeroDeTarjeta);
+    for(i=0;i<cant;i++){
+     if(strcmp(propietario[indice].NumeroDeTarjeta, propietario[i].NumeroDeTarjeta)==0 && propietario[i].estado==OCUPADO){
+      printf("\n NOMBRE:\t\t              APELLIDO:\t          EDAD:\t          NUMERO DE ID\t          NUMERO DE TARJETA:\t     DIRECCION: \n");
+      printf("-----------------------------------------------------------------------------------------------------------------------------------\n");
+      propietarioMostrarUno(propietario[i]);
+      printf("\n no puede haber 2 numeros de tarjetas iguales.\n vuelva a escribir\n ");
+     }
+    }
+   }while(strcmp(propietario[indice].NumeroDeTarjeta,propietario[i].NumeroDeTarjeta)==0);
    printf(" Ingrese una Direccion:\n ");
    propietario[indice].direccion[50]=validarnombre(propietario[indice].direccion);
    printf(" id del propietario: %d\n ", propietario[indice].idPropietario);
@@ -167,6 +184,7 @@ int modificarPropietario(ePropietarios propietario[], int cant){
 int index=-1;
 int aux=0;
 int i;
+int j;
 
 printf(" ingrese id de propietario\n ");
 aux=validarNumero(aux);
@@ -174,8 +192,18 @@ aux=validarNumero(aux);
   for(i=0;i<cant; i++){
     if(propietario[i].estado == OCUPADO &&aux==propietario[i].idPropietario){
      printf(" Ingrese numero de tarjeta:\n ");
-     fflush(stdin);
-     propietario[i].NumeroDeTarjeta[10]=validarNumerochar(propietario[i].NumeroDeTarjeta);
+   do{
+   fflush(stdin);
+   propietario[i].NumeroDeTarjeta[10]=validarNumerochar(propietario[i].NumeroDeTarjeta);
+    for(j=0;j<cant;j++){
+     if(strcmp(propietario[i].NumeroDeTarjeta, propietario[j].NumeroDeTarjeta)==0 && propietario[j].estado==OCUPADO){
+       printf("\n NOMBRE:\t\t              APELLIDO:\t          EDAD:\t          NUMERO DE ID\t          NUMERO DE TARJETA:\t     DIRECCION: \n");
+       printf("-----------------------------------------------------------------------------------------------------------------------------------\n");
+       propietarioMostrarUno(propietario[j]);
+       printf("\n no puede haber 2 numeros de tarjetas iguales.\n vuelva a escribir");
+      }
+     }
+    }while(!strcmp(propietario[i].NumeroDeTarjeta, propietario[j].NumeroDeTarjeta)==0);
      index=0;
     }
    }
@@ -187,7 +215,7 @@ aux=validarNumero(aux);
 
 void propietarioMostrarUno(ePropietarios propietario){
 
-    printf(" %s\t\t               %s\t\t          %d\t\t      %s\t\t      %s\n",propietario.nombre ,propietario.apellido,propietario.idPropietario ,propietario.NumeroDeTarjeta, propietario.direccion);
+    printf(" %s\t\t\t               %s\t\t     %d\t\t        %d\t\t      %s\t\t      %s\n",propietario.nombre ,propietario.apellido,propietario.edad,propietario.idPropietario ,propietario.NumeroDeTarjeta, propietario.direccion);
 }
 
 
@@ -195,8 +223,8 @@ void propietarioMostrarUno(ePropietarios propietario){
 void propietarioMostrarListado(ePropietarios propietario[],int cant){
     int i;
     if(cant > 0 && propietario != NULL){
-     printf("\n NOMBRE:\t              APELLIDO:\t          NUMERO DE ID\t          NUMERO DE TARJETA:\t     DIRECCION: \n");
-     printf("------------------------------------------------------------------------------------------------------------------\n");
+     printf("\n NOMBRE:\t\t              APELLIDO:\t          EDAD:\t          NUMERO DE ID\t          NUMERO DE TARJETA:\t     DIRECCION: \n");
+     printf("-----------------------------------------------------------------------------------------------------------------------------------\n");
         for(i=0; i<cant; i++){
             if(propietario[i].estado==OCUPADO){
              fflush(stdin);
@@ -437,9 +465,9 @@ horas=devolverHorasEstadia();
    }
   }
 
-printf("\n NOMBRE DE PROPIETARIO:\t APELLIDO DE PROPIETARIO:\t PATENTE DE AUTO:\t MARCA:\t\t VALOR DE ESTADIA:\n");
-printf("--------------------------------------------------------------------------------------\n");
-printf("\t%s\t\t\t %s\t\t %d\t\t %.2f\t\n\n", nombre ,apellido, autos[id].patente, autos[id].marca, aPagar);
+printf("\n NOMBRE DE PROPIETARIO:\t APELLIDO DE PROPIETARIO:\t PATENTE DE AUTO:\t      MARCA:\t\t VALOR DE ESTADIA:\n");
+printf("---------------------------------------------------------------------------------------------------------------\n");
+printf("\t%s\t\t\t %s\t\t\t %s\t\t\t\t %d\t\t %.2f\t\n\n", nombre ,apellido, autos[id].patente, autos[id].marca, aPagar);
 }
 
 
@@ -544,3 +572,77 @@ for(k=0;k<20;k++){
     }
    }
 }
+
+void ordenarPropietariosPorNombre(ePropietarios propietario[], int cant){
+int i;
+int j;
+int opcion=0;
+ePropietarios propietario2[TAM];
+ePropietarios propietarioAux;
+for(i=0;i<cant;i++){
+    strcpy(propietario2[i].apellido,propietario[i].apellido);
+    strcpy(propietario2[i].direccion,propietario[i].direccion);
+    strcpy(propietario2[i].nombre,propietario[i].nombre);
+    strcpy(propietario2[i].NumeroDeTarjeta,propietario[i].NumeroDeTarjeta);
+    propietario2[i].edad=propietario[i].edad;
+    propietario2[i].estado=propietario[i].estado;
+    propietario2[i].idPropietario=propietario[i].idPropietario;
+
+}
+printf("\n como desea que se muestre el listado?\n");
+printf(" ingrese 1 para orden ascendente\n Ingrese 2 para orden descendente\n ");
+do{
+fflush(stdin);
+opcion=validarNumero(opcion);
+if(opcion==1){
+for(i=0;i<cant-1;i++){
+ if(cant > 0 && propietario2 != NULL && propietario2[i].estado == OCUPADO){
+  for(j=i+1;j<cant;j++){
+   if(strcmp(propietario2[j].nombre,propietario2[i].nombre)<0 && propietario2[j].estado==OCUPADO){
+    propietarioAux=propietario2[i];
+    propietario2[i]=propietario2[j];
+    propietario2[j]=propietarioAux;
+   }
+  }
+ }
+}
+}
+else if(opcion==2){
+    for(i=0;i<cant-1;i++){
+  if(cant > 0 && propietario2 != NULL && propietario2[i].estado == OCUPADO){
+  for(j=i+1;j<cant;j++){
+   if(strcmp(propietario2[j].nombre,propietario2[i].nombre)>0 && propietario2[j].estado==OCUPADO){
+    propietarioAux=propietario2[i];
+    propietario2[i]=propietario2[j];
+    propietario2[j]=propietarioAux;
+    }
+   }
+  }
+ }
+}
+else{
+    printf("seleccione unicamente 1 o 2\n ");
+}
+}while(opcion<1 || opcion>2);
+propietarioMostrarListado(propietario2, cant);
+}
+
+void listarPorEdad(ePropietarios propietario[], int cant){
+int auxedad=0;
+int i;
+int j;
+
+printf(" Ingrese a partir de que edad se debe mostrar los propietarios:\n ");
+auxedad=validarNumero(auxedad);
+
+
+for(i=0;i<cant;i++){
+ if(propietario[i].edad>=auxedad && propietario[i].estado==OCUPADO){
+    printf("\n NOMBRE:\t                      APELLIDO:\t          EDAD:\t          NUMERO DE ID\t          NUMERO DE TARJETA:\t     DIRECCION: \n");
+     printf("-----------------------------------------------------------------------------------------------------------------------------------\n");
+    propietarioMostrarUno(propietario[i]);
+
+  }
+ }
+}
+

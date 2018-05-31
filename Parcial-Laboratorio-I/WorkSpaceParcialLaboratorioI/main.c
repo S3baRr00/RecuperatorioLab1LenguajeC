@@ -22,7 +22,8 @@ inicializarAutos (autos,TAM);
 do{
 printf("\n 1.  dar de alta un propietario\n 2.  dar de baja un propietario \n 3.  modificar un propietario\n 4.  ingresar automovil\n");
 printf(" 5.  egresar Autommovil\n 6.  total recaudado\n 7.  recaudado por marca\n 8.  mostrar lista de autos de propietario\n");
-printf(" 9.  mostrar lista de propietarios con Audi\n 10. mostrar listado de autos estacionados segun su patente\n 11. lista de propietarios\n 12. lista de autos\n 13. salir\n");
+printf(" 9.  mostrar lista de propietarios con Audi\n 10. mostrar listado de autos estacionados segun su patente\n 11. mostrar propietarios en orden \n 12. mostrar propietarios segun edad\n");
+printf(" 13. lista de propietarios\n 14. lista de autos\n 15. salir\n");
 printf("\n opcion: ");
 
 fflush(stdin);
@@ -42,6 +43,7 @@ case 1:
     break;
 case 2:
     propietarioMostrarListado(propietario, TAM);
+    autosMostrarListado(autos, TAM);
     index=bajaPropietario(propietario,TAM, autos);
     if(index==0){
         printf("\n propietario dado de baja\n");
@@ -101,12 +103,18 @@ case 10:
     mostrarautosPorPatente(autos, propietario, TAM);
     break;
 case 11:
-    propietarioMostrarListado(propietario, TAM);
+    ordenarPropietariosPorNombre(propietario, TAM);
     break;
 case 12:
-    autosMostrarListado(autos, TAM);
+    listarPorEdad(propietario, TAM);
     break;
 case 13:
+    propietarioMostrarListado(propietario, TAM);
+    break;
+case 14:
+    autosMostrarListado(autos, TAM);
+    break;
+case 15:
     printf("\n seguro que quiere salir?(presione 's' para salir): ");
     scanf("%s", respuesta);
     break;

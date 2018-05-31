@@ -5,6 +5,7 @@ typedef struct
 {
 char nombre[30];
 char apellido[30];
+int edad;
 int idPropietario;
 char NumeroDeTarjeta[10];
 char direccion[50];
@@ -232,5 +233,12 @@ void mostrarRecaudadoMarca();
  *
  */
 void mostrarTotalRecaudado();
+
+
+
+void ordenarPropietariosPorNombre(ePropietarios propietario[], int cant);
+
+
+void listarPorEdad(ePropietarios propietario[], int cant);
 
 #endif
